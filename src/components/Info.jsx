@@ -65,8 +65,8 @@ const Info = () => {
                                 />
                             </div>
 
-                            <div className="grid grid-cols-2 gap-4">
-                                <div>
+                            <div className="flex justify-between">
+                                <div className="w-[49%]">
                                     <label className="block text-secondary font-heading font-bold uppercase text-xs mb-2 tracking-wider">Data</label>
                                     <input
                                         type="date"
@@ -74,18 +74,13 @@ const Info = () => {
                                         value={formData.date}
                                         onChange={handleChange}
                                         required
-                                        className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-text font-body focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all"
-                                    />
+                                        className="w-full h-[48px] bg-white border border-gray-200 rounded-xl px-4 py-3 text-text font-body appearance-none focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all"
+                                    />2
                                 </div>
-                                <div>
+
+                                <div className="w-[49%]">
                                     <label className="block text-secondary font-heading font-bold uppercase text-xs mb-2 tracking-wider">Orario</label>
-                                    <select
-                                        name="time"
-                                        value={formData.time}
-                                        onChange={handleChange}
-                                        required
-                                        className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-text font-body focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all appearance-none"
-                                    >
+                                    <select name="time" value={formData.time} onChange={handleChange} required className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-text font-body focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all appearance-none">
                                         {['18:00', '18:30', '19:00', '19:30', '20:00', '20:30', '21:00', '21:30', '22:00', '22:30', '23:00'].map(t => (
                                             <option key={t} value={t}>{t}</option>
                                         ))}

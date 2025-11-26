@@ -76,7 +76,7 @@ const Header = () => {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="md:hidden bg-white border-t border-gray-100 overflow-hidden shadow-xl"
+                        className="md:hidden bg-[#F28C28] overflow-hidden shadow-xl m-2 rounded-xl"
                     >
                         <nav className="flex flex-col items-center py-8 gap-6">
                             {navLinks.map((link) => (
