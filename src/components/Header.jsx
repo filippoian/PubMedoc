@@ -35,14 +35,14 @@ const Header = () => {
         // MODIFICA 1: Rimosso 'py-1' per eliminare lo spazio interno verticale
         <header className={`fixed w-full top-0 z-50 transition-all duration-300 bg-transparent ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
             <div className="container mx-auto px-4 flex justify-between items-center">
-                
+
                 {/* MODIFICA 2: Aggiunto '-mt-2' (margine negativo) per tirare il logo verso l'alto */}
                 <a href="#" className="flex items-center -mt-2">
                     <img
                         src="/pubmedoc-logo.png"
                         alt="PubMedoc Logo"
                         // Dimensioni mantenute come richiesto
-                        className="h-26 md:h-42 w-auto"
+                        className="h-[6.5rem] md:h-[10.5rem] w-auto"
                     />
                 </a>
 
