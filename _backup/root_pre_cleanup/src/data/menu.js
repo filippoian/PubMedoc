@@ -29,7 +29,7 @@ export const menuCategories = [
         ]
     },
     {
-        id: 'pinse-rosse',
+        id: 'pinse',
         title: 'Pinse Rosse',
         items: [
             { name: 'Lunedì', price: '€10', description: 'Pomodoro, bufala, basilico' },
@@ -75,7 +75,7 @@ export const menuCategories = [
         ]
     },
     {
-        id: 'birre-bar',
+        id: 'birre',
         title: 'Birre & Bar',
         items: [
             { name: 'Hirter Marzen 5,0%', price: '€4 / €6', description: '0.3cl / 0.5cl - Lager, Austria' },

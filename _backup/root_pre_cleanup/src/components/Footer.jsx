@@ -11,8 +11,11 @@ const Footer = () => {
                     <h2 className="text-4xl font-heading font-black text-white mb-6">MÉDOC <span className="text-primary">PUB</span></h2>
 
                     <div className="flex gap-6 mb-12">
-                        <a href="https://instagram.com/medocpub" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-primary transition-colors p-3 bg-white rounded-full shadow-lg hover:scale-110 transform duration-300">
+                        <a href="https://instagram.com/pub_medoc" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-primary transition-colors p-3 bg-white rounded-full shadow-lg hover:scale-110 transform duration-300">
                             <Instagram size={28} />
+                        </a>
+                        <a href="#" className="text-secondary hover:text-primary transition-colors p-3 bg-white rounded-full shadow-lg hover:scale-110 transform duration-300">
+                            <Facebook size={28} />
                         </a>
                     </div>
 
