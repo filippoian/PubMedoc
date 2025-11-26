@@ -39,7 +39,7 @@ const Header = () => {
                 {/* MODIFICA 2: Aggiunto '-mt-2' (margine negativo) per tirare il logo verso l'alto */}
                 <a href="#" className="flex items-center -mt-2">
                     <img
-                        src="/pubmedoc-logo.png"
+                        src="/logo.png"
                         alt="PubMedoc Logo"
                         // Dimensioni mantenute come richiesto
                         className="h-[6.5rem] md:h-[10.5rem] w-auto"
