@@ -12,7 +12,7 @@ const MenuCategory = ({ category, isOpen, onToggle }) => {
                 className={`w-full flex items-center justify-between p-6 bg-white border border-gray-200 rounded-xl shadow-sm transition-all duration-300 hover:bg-gray-50 group ${isOpen ? 'ring-2 ring-primary ring-opacity-50' : ''}`}
             >
                 <div className="flex items-center gap-4">
-                    <span className="text-4xl">{category.icon}</span>
+                    {category.icon && <span className="text-4xl">{category.icon}</span>}
                     <h3 className="text-2xl md:text-3xl font-heading font-bold uppercase text-primary group-hover:text-orange-600 transition-colors text-left">
                         {category.title}
                     </h3>
@@ -22,13 +22,18 @@ const MenuCategory = ({ category, isOpen, onToggle }) => {
                 </div>
             </button>
 
-            <AnimatePresence>
+            <AnimatePresence initial={false}>
                 {isOpen && (
                     <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        initial="collapsed"
+                        animate="open"
+                        exit="collapsed"
+                        variants={{
+                            open: { opacity: 1, height: "auto" },
+                            collapsed: { opacity: 0, height: 0 }
+                        }}
+                        transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
+                        style={{ willChange: 'height', transform: 'translateZ(0)' }}
                         className="overflow-hidden"
                     >
                         <div className="pt-4 pb-2">
