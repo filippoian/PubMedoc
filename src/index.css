@@ -43,12 +43,11 @@
   --font-body: 'Nunito', sans-serif;
 }
 
-body {
   background-color: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-body);
   background-image: url('./assets/watermark_bg.png');
   background-repeat: repeat;
-  background-attachment: fixed;
+  background-attachment: scroll; /* Fixed causes lag on mobile */
   background-size: 100% auto;
 }
