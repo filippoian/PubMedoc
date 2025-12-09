@@ -1,0 +1,58 @@
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 9999;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 9999px;
+    background-color: #FF6B35;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.8) translateZ(0);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    border: none;
+    will-change: auto;
+    backface-visibility: hidden;
+
+    /* iOS Safari specific */
+    -webkit-transform: scale(0.8) translateZ(0);
+    -webkit-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-backface-visibility: hidden;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.back-to-top.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1) translateZ(0);
+    -webkit-transform: scale(1) translateZ(0);
+}
+
+.back-to-top:hover {
+    background-color: #ea5a28;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.back-to-top:active {
+    transform: scale(0.95) translateZ(0);
+    -webkit-transform: scale(0.95) translateZ(0);
+}
+
+/* iOS Safari force GPU acceleration */
+@supports (-webkit-touch-callout: none) {
+    .back-to-top {
+        /* Force hardware acceleration on iOS */
+        -webkit-perspective: 1000;
+        perspective: 1000;
+    }
+}

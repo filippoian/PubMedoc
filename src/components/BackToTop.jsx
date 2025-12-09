@@ -1,20 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronUp } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import './BackToTop.css';
 
 const BackToTop = () => {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
         const toggleVisibility = () => {
-            if (window.pageYOffset > 300) {
-                setIsVisible(true);
-            } else {
-                setIsVisible(false);
-            }
+            setIsVisible(window.pageYOffset > 300);
         };
 
-        window.addEventListener('scroll', toggleVisibility);
+        window.addEventListener('scroll', toggleVisibility, { passive: true });
         return () => window.removeEventListener('scroll', toggleVisibility);
     }, []);
 
@@ -26,21 +22,13 @@ const BackToTop = () => {
     };
 
     return (
-        <AnimatePresence>
-            {isVisible && (
-                <motion.button
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.8 }}
-                    transition={{ duration: 0.3 }}
-                    onClick={scrollToTop}
-                    className="fixed bottom-8 right-8 z-50 bg-primary text-white p-4 rounded-full shadow-lg hover:shadow-xl hover:bg-orange-600 transition-all transform hover:scale-110 active:scale-95"
-                    aria-label="Torna su"
-                >
-                    <ChevronUp size={24} />
-                </motion.button>
-            )}
-        </AnimatePresence>
+        <button
+            onClick={scrollToTop}
+            className={`back-to-top ${isVisible ? 'is-visible' : ''}`}
+            aria-label="Torna su"
+        >
+            <ChevronUp size={24} />
+        </button>
     );
 };
 

@@ -10,11 +10,12 @@ const Hero = () => {
     const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
     return (
-        // Rimosso bg-bg qui per evitare conflitti. Lo gestiamo nel wrapper.
+        // Aggiunto 'relative' per Framer Motion scroll offset
         <section ref={ref} className="relative min-h-[60vh] flex flex-col items-center justify-center overflow-hidden pt-10 pb-5">
-            
+
+
             {/* --- BACKGROUND WRAPPER CON MASCHERA --- */}
-            <div 
+            <div
                 className="absolute inset-0 -z-20 pointer-events-none"
                 style={{
                     // La maschera dice:

@@ -75,7 +75,7 @@ const Info = () => {
                                         onChange={handleChange}
                                         required
                                         className="w-full h-[48px] bg-white border border-gray-200 rounded-xl px-4 py-3 text-text font-body appearance-none focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all"
-                                    />2
+                                    />
                                 </div>
 
                                 <div className="w-[49%]">
