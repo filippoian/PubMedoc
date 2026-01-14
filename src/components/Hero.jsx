@@ -73,9 +73,6 @@ const Hero = () => {
                     </motion.a>
                 </motion.div>
             </div>
-
-
-
         </section>
     );
 };

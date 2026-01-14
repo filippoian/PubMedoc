@@ -39,6 +39,7 @@ const Header = () => {
                 {/* MODIFICA 2: Aggiunto '-mt-2' (margine negativo) per tirare il logo verso l'alto */}
 
 
+
                 {/* Desktop Nav */}
                 <nav className="hidden md:flex items-center gap-6">
                     {navLinks.map((link) => (
