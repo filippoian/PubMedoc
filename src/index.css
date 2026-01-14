@@ -43,7 +43,9 @@
   --font-body: 'Nunito', sans-serif;
 }
 
+html,
 body {
+  overscroll-behavior: none;
   background-color: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-body);
