@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import Menu from './components/Menu';
-import Info from './components/Info';
 import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
 import IntroAnimation from './components/IntroAnimation';
 import { AnimatePresence } from 'framer-motion';
+
+// Lazy load non-critical components
+const Menu = lazy(() => import('./components/Menu'));
+const Info = lazy(() => import('./components/Info'));
 
 
 function App() {
@@ -30,8 +32,10 @@ function App() {
       <Header />
       <main>
         <Hero />
-        <Menu />
-        <Info />
+        <Suspense fallback={<div className="py-20"></div>}>
+          <Menu />
+          <Info />
+        </Suspense>
       </main>
       <Footer />
       <BackToTop />

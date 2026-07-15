@@ -32,17 +32,17 @@ const IntroAnimation = ({ onComplete }) => {
         tl.to(logoRef.current, {
             scale: 1,
             opacity: 1,
-            duration: 1.2,
+            duration: 0.7,
             ease: 'elastic.out(1, 0.5)',
         })
-            // 3. Pause
-            .to({}, { duration: 0.8 })
+            // 2. Pause
+            .to({}, { duration: 0.4 })
 
-            // 4. Curtain Reveal (Slide Up & Fade)
+            // 3. Curtain Reveal (Slide Up & Fade)
             .to(containerRef.current, {
                 yPercent: -100,
-                opacity: 0, // Add fade out
-                duration: 1.2,
+                opacity: 0,
+                duration: 0.7,
                 ease: 'power3.inOut',
             });
 

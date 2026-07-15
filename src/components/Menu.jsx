@@ -65,8 +65,11 @@ const Menu = () => {
                 </div>
             </div>
 
-            <div className="mt-8 text-center">
-                <p className="text-xl font-heading font-bold text-secondary uppercase tracking-widest bg-white/90 inline-block px-6 py-2 rounded-full shadow-md backdrop-blur-sm border border-gray-200">
+            <div className="mt-8 flex flex-col items-center gap-3">
+                <p className="text-lg font-heading font-bold text-primary uppercase tracking-widest bg-orange-100/80 px-6 py-2 rounded-full shadow-md backdrop-blur-sm border border-orange-300">
+                    Senza glutine +€1,5
+                </p>
+                <p className="text-xl font-heading font-bold text-secondary uppercase tracking-widest bg-white/90 px-6 py-2 rounded-full shadow-md backdrop-blur-sm border border-gray-200">
                     Coperto €2
                 </p>
             </div>
