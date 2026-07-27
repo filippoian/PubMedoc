@@ -1,0 +1,17 @@
+{
+  "name": "Medoc Pub - Birreria Pinseria Paninoteca",
+  "short_name": "Medoc Pub",
+  "description": "Medoc Pub a San Benedetto del Tronto. Birre artigianali, pinse romane, hamburger gourmet.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F28C28",
+  "theme_color": "#FF6B35",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

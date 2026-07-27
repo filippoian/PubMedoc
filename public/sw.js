@@ -1,6 +1,7 @@
-const CACHE_NAME = 'medoc-pub-v1';
+const CACHE_NAME = 'medoc-pub-v2';
 const urlsToCache = [
   '/',
+  '/en',
   '/index.html',
   '/logo.png',
   '/assets/element2.png',

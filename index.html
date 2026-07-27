@@ -6,10 +6,11 @@
     <link rel="icon" type="image/png" href="/logo.png" />
 
     <!-- Primary Meta Tags -->
+    <!-- Nota: description/canonical/hreflang variabili per lingua/pagina sono gestiti
+         dinamicamente da React Helmet (src/components/SeoHead.jsx) per Google/Bing (che eseguono JS).
+         og:*/twitter:* restano statici (italiano) perché i crawler social (Facebook/WhatsApp/Twitter)
+         NON eseguono JavaScript e leggono solo questo HTML iniziale. -->
     <title>Medoc Pub - Birreria Pinseria Paninoteca San Benedetto del Tronto</title>
-    <meta name="title" content="Medoc Pub - Birreria Pinseria Paninoteca San Benedetto del Tronto">
-    <meta name="description"
-        content="Medoc Pub a San Benedetto del Tronto. Birre artigianali, pinse romane, hamburger gourmet e tanto altro. Prenota il tuo tavolo ora!">
     <meta name="keywords"
         content="pub, birreria, pinseria, paninoteca, san benedetto del tronto, birre artigianali, hamburger, aperitivo, cena">
     <meta name="author" content="Medoc Pub">
@@ -17,19 +18,20 @@
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://pubmedocmenu.com/"> <!-- TODO: Replace with actual domain -->
+    <meta property="og:url" content="https://pubmedocmenu.com/">
     <meta property="og:title" content="Medoc Pub - Birreria Pinseria Paninoteca San Benedetto del Tronto">
     <meta property="og:description"
         content="Medoc Pub a San Benedetto del Tronto. Birre artigianali, pinse romane, hamburger gourmet e tanto altro.">
-    <meta property="og:image" content="/logo.png">
+    <meta property="og:image" content="https://pubmedocmenu.com/logo.png">
+    <meta property="og:locale" content="it_IT">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://pubmedocmenu.com/"> <!-- TODO: Replace with actual domain -->
+    <meta property="twitter:url" content="https://pubmedocmenu.com/">
     <meta property="twitter:title" content="Medoc Pub - Birreria Pinseria Paninoteca San Benedetto del Tronto">
     <meta property="twitter:description"
         content="Medoc Pub a San Benedetto del Tronto. Birre artigianali, pinse romane, hamburger gourmet e tanto altro.">
-    <meta property="twitter:image" content="/logo.png">
+    <meta property="twitter:image" content="https://pubmedocmenu.com/logo.png">
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -37,10 +39,14 @@
       "@context": "https://schema.org",
       "@type": "Restaurant",
       "name": "Medoc Pub",
-      "image": "/logo.png",
+      "image": "https://pubmedocmenu.com/logo.png",
       "@id": "https://pubmedocmenu.com",
       "url": "https://pubmedocmenu.com",
       "telephone": "+393780919110",
+      "menu": "https://pubmedocmenu.com/#menu",
+      "sameAs": [
+        "https://instagram.com/medocpub"
+      ],
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Via Monfalcone, 10",
@@ -89,6 +95,7 @@
     <!-- Android -->
     <meta name="theme-color" content="#FF6B35" />
     <meta name="mobile-web-app-capable" content="yes" />
+    <link rel="manifest" href="/manifest.json" />
 </head>
 
 <body>

@@ -1,7 +1,9 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
 
 const Hero = () => {
+    const { t } = useLanguage();
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({
         target: ref,
@@ -39,7 +41,7 @@ const Hero = () => {
             </div>
             {/* --- FINE BACKGROUND --- */}
 
-            <div className="container mx-auto px-4 relative z-10 text-center flex-grow flex flex-col justify-center items-center">
+            <div className="container mx-auto px-4 relative z-10 text-center grow flex flex-col justify-center items-center">
 
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -60,7 +62,7 @@ const Hero = () => {
                     </motion.div>
 
                     <p className="text-lg md:text-xl text-secondary font-heading font-bold uppercase tracking-widest mb-10">
-                        Birreria • Pinseria • Paninoteca
+                        {t.hero.tagline}
                     </p>
 
                     <motion.a
@@ -69,7 +71,7 @@ const Hero = () => {
                         whileTap={{ scale: 0.95 }}
                         className="inline-block bg-primary text-white font-heading font-bold text-xl uppercase px-10 py-4 rounded-full shadow-lg hover:shadow-primary/40 transition-all border-4 border-white/20"
                     >
-                        Prenota un Tavolo
+                        {t.hero.cta}
                     </motion.a>
                 </motion.div>
             </div>

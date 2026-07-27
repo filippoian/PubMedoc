@@ -1,8 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { menuCategories } from '../data/menu';
+import { useLanguage } from '../context/LanguageContext';
 import './Menu.css';
 
 const Menu = () => {
+    const { language, t } = useLanguage();
     // Default to null (all closed)
     const [activeCategoryId, setActiveCategoryId] = useState(null);
     const tabsRef = useRef(null);
@@ -22,10 +24,10 @@ const Menu = () => {
         <section id="menu" className="py-20 relative">
             <div className="container mx-auto px-4 mb-8 relative z-10">
                 <h2 className="text-4xl md:text-6xl font-heading font-black text-center text-secondary uppercase tracking-tight drop-shadow-sm mb-4">
-                    Il Nostro Menu
+                    {t.menu.title}
                 </h2>
                 <p className="text-center text-white/90 max-w-2xl mx-auto font-body text-lg font-medium">
-                    Scegli una categoria per scoprire le nostre proposte.
+                    {t.menu.subtitle}
                 </p>
             </div>
 
@@ -38,7 +40,7 @@ const Menu = () => {
                             onClick={() => handleTabClick(category.id)}
                             className={`tab-button ${activeCategoryId === category.id ? 'active' : ''}`}
                         >
-                            {category.title}
+                            {t.menu.categories[category.id]}
                         </button>
                     ))}
                 </div>
@@ -50,12 +52,12 @@ const Menu = () => {
                             {activeCategory.items.map((item, idx) => (
                                 <div key={`${activeCategory.id}-${idx}`} className="menu-item-card">
                                     <div className="item-header">
-                                        <h3 className="item-name">{item.name}</h3>
+                                        <h3 className="item-name">{language === 'en' && item.nameEn ? item.nameEn : item.name}</h3>
                                         <span className="item-price">{item.price}</span>
                                     </div>
-                                    {item.description && (
+                                    {(language === 'en' ? item.descriptionEn : item.description) && (
                                         <p className="item-description">
-                                            {item.description}
+                                            {language === 'en' ? item.descriptionEn : item.description}
                                         </p>
                                     )}
                                 </div>
@@ -67,10 +69,10 @@ const Menu = () => {
 
             <div className="mt-8 flex flex-col items-center gap-3">
                 <p className="text-lg font-heading font-bold text-primary uppercase tracking-widest bg-orange-100/80 px-6 py-2 rounded-full shadow-md backdrop-blur-sm border border-orange-300">
-                    Senza glutine +€1,5
+                    {t.menu.glutenFree}
                 </p>
                 <p className="text-xl font-heading font-bold text-secondary uppercase tracking-widest bg-white/90 px-6 py-2 rounded-full shadow-md backdrop-blur-sm border border-gray-200">
-                    Coperto €2
+                    {t.menu.coperto}
                 </p>
             </div>
         </section>

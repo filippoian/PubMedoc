@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Menu, X, Phone } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [isVisible, setIsVisible] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
+    const { language, toggleLanguage, t } = useLanguage();
+    const location = useLocation();
+    const isHome = location.pathname === '/' || location.pathname === '/en';
+    const anchorPrefix = isHome ? '' : (language === 'en' ? '/en' : '/');
 
     useEffect(() => {
         const handleScroll = () => {
@@ -26,9 +32,9 @@ const Header = () => {
     }, [lastScrollY]);
 
     const navLinks = [
-        { name: 'Prenota', href: '#prenota' },
-        { name: 'Menu', href: '#menu' },
-        { name: 'Contatti', href: '#contatti' },
+        { name: t.nav.prenota, href: `${anchorPrefix}#prenota` },
+        { name: t.nav.menu, href: `${anchorPrefix}#menu` },
+        { name: t.nav.contatti, href: `${anchorPrefix}#contatti` },
     ];
 
     return (
@@ -57,17 +63,33 @@ const Header = () => {
                         rel="noopener noreferrer"
                         className="bg-secondary text-white px-6 py-2.5 rounded-full font-heading font-bold uppercase text-sm hover:bg-blue-700 transition-colors flex items-center gap-2 shadow-md"
                     >
-                        <Phone size={16} /> Prenota
+                        <Phone size={16} /> {t.nav.prenota}
                     </a>
+                    <button
+                        onClick={toggleLanguage}
+                        className="border-2 border-secondary text-secondary px-4 py-2 rounded-full font-heading font-bold uppercase text-sm hover:bg-secondary hover:text-white transition-colors"
+                        aria-label="Change language"
+                    >
+                        {language === 'it' ? 'EN' : 'IT'}
+                    </button>
                 </nav>
 
-                {/* Mobile Menu Button */}
-                <button
-                    className="md:hidden text-secondary"
-                    onClick={() => setIsOpen(!isOpen)}
-                >
-                    {isOpen ? <X size={28} /> : <Menu size={28} />}
-                </button>
+                {/* Mobile Language Button + Menu Button */}
+                <div className="md:hidden flex items-center gap-3">
+                    <button
+                        onClick={toggleLanguage}
+                        className="border-2 border-secondary text-secondary px-3 py-1.5 rounded-full font-heading font-bold uppercase text-xs"
+                        aria-label="Change language"
+                    >
+                        {language === 'it' ? 'EN' : 'IT'}
+                    </button>
+                    <button
+                        className="text-secondary"
+                        onClick={() => setIsOpen(!isOpen)}
+                    >
+                        {isOpen ? <X size={28} /> : <Menu size={28} />}
+                    </button>
+                </div>
             </div>
 
             {/* Mobile Nav */}
@@ -97,7 +119,7 @@ const Header = () => {
                                 className="bg-primary text-white px-8 py-3 rounded-full font-heading font-bold uppercase text-lg hover:bg-orange-600 transition-colors flex items-center gap-2 shadow-lg"
                                 onClick={() => setIsOpen(false)}
                             >
-                                <Phone size={20} /> Prenota
+                                <Phone size={20} /> {t.nav.prenota}
                             </a>
                         </nav>
                     </motion.div>
